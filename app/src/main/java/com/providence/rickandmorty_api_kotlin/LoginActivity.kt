@@ -20,7 +20,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         val auth = FirebaseAuth.getInstance()
-        auth.signOut()
+//        auth.signOut()
         if (auth.currentUser != null) {
             // Already signed in
             startActivity(Intent(this@LoginActivity, DrawerActivity::class.java))
