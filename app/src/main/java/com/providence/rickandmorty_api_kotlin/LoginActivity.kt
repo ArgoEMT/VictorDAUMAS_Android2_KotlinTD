@@ -20,10 +20,10 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         val auth = FirebaseAuth.getInstance()
-//        auth.signOut()
+        auth.signOut()
         if (auth.currentUser != null) {
             // Already signed in
-            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+            startActivity(Intent(this@LoginActivity, DrawerActivity::class.java))
             finish()
         } else {
             // Not signed in. Start the login flow.
@@ -53,7 +53,7 @@ class LoginActivity : AppCompatActivity() {
             val response = IdpResponse.fromResultIntent(data)
             if (resultCode == Activity.RESULT_OK) {
                 // Successfully signed in
-                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                startActivity(Intent(this@LoginActivity, DrawerActivity::class.java))
                 finish()
                 return
             } else {
