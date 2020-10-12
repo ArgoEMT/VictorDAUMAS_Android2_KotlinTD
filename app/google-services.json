@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "440106842091",
+    "firebase_url": "https://rickandmorty-api-kotlin.firebaseio.com",
+    "project_id": "rickandmorty-api-kotlin",
+    "storage_bucket": "rickandmorty-api-kotlin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:440106842091:android:4047ebadccf77c1c714bae",
+        "android_client_info": {
+          "package_name": "com.providence.rickandmorty_api_kotlin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "440106842091-vgktl3jctkebaoshkfvrklmn4l6m4v9h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6XU7uowlweYYTVgnBVgiS76rDs1or90E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "440106842091-vgktl3jctkebaoshkfvrklmn4l6m4v9h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
