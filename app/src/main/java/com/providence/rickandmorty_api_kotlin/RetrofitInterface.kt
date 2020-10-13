@@ -11,6 +11,6 @@ import retrofit2.http.GET
  * @version 1.0
  */
 interface RetrofitInterface {
-    @GET("character")
-    fun getCharacters(): Deferred<CharacterResponse>
+//    @GET("character")
+//    fun getCharacters(): Deferred<CharacterResponse>
 }
