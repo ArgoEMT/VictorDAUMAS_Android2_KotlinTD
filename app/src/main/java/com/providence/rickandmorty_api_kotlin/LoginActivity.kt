@@ -43,6 +43,7 @@ class LoginActivity : AppCompatActivity() {
             )
         }
     }
+    
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -54,7 +55,7 @@ class LoginActivity : AppCompatActivity() {
             if (resultCode == Activity.RESULT_OK) {
                 // Successfully signed in
                 startActivity(Intent(this@LoginActivity, DrawerActivity::class.java))
-                finish()
+//                finish()
                 return
             } else {
                 // Sign in failed
