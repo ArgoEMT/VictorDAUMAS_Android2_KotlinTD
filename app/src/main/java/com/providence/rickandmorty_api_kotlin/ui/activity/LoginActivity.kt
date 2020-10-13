@@ -1,4 +1,4 @@
-package com.providence.rickandmorty_api_kotlin
+package com.providence.rickandmorty_api_kotlin.ui.activity
 
 import android.app.Activity
 import android.content.Intent
@@ -10,6 +10,7 @@ import com.firebase.ui.auth.AuthUI.IdpConfig.EmailBuilder
 import com.firebase.ui.auth.ErrorCodes
 import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
+import com.providence.rickandmorty_api_kotlin.R
 
 class LoginActivity : AppCompatActivity() {
 

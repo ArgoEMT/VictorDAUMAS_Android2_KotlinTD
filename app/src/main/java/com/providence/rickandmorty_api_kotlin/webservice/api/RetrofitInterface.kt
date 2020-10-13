@@ -1,10 +1,6 @@
-package com.providence.rickandmorty_api_kotlin
+package com.providence.rickandmorty_api_kotlin.webservice.api
 
-import android.telecom.Call
-import com.providence.rickandmorty_api_kotlin.model.ListCharacter
 import com.providence.rickandmorty_api_kotlin.model.PaginatedResult
-import com.providence.rickandmorty_api_kotlin.response.CharacterResponse
-import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.providence.rickandmorty_api_kotlin.R
 
-class HomeFragment : Fragment() {
+class CharacterListFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var characterViewModel: CharacterViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProviders.of(this).get(HomeViewModel::class.java)
+        characterViewModel =
+            ViewModelProviders.of(this).get(CharacterViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
         val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
+        characterViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

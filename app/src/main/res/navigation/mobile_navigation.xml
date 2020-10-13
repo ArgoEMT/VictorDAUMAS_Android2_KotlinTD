@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.providence.rickandmorty_api_kotlin.ui.home.HomeFragment"
+        android:name="com.providence.rickandmorty_api_kotlin.ui.home.CharacterListFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
@@ -20,5 +20,5 @@
     <fragment
         android:id="@+id/logout_button"
         android:name="com.providence.rickandmorty_api_kotlin.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"/>
+        android:label="@string/menu_logout"/>
 </navigation>

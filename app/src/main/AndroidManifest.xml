@@ -12,11 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".DrawerActivity"
+            android:name=".ui.activity.DrawerActivity"
             android:label="@string/title_activity_drawer"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".LoginActivity">
+        <activity android:name=".ui.activity.MainActivity"></activity>
+        <activity android:name=".ui.activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
