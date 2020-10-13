@@ -56,6 +56,7 @@ class DrawerActivity : AppCompatActivity(), NavController.OnDestinationChangedLi
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
+    //LogOut button
     override fun onDestinationChanged(
         controller: NavController,
         destination: NavDestination,

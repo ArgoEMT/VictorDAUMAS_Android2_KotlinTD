@@ -30,6 +30,7 @@ class LoginActivity : AppCompatActivity() {
             startActivityForResult(
                 AuthUI.getInstance()
                     .createSignInIntentBuilder()
+                    .setLogo(R.drawable.rnm_logo)
                     .setAvailableProviders(
                         listOf(
                             EmailBuilder().build(),
