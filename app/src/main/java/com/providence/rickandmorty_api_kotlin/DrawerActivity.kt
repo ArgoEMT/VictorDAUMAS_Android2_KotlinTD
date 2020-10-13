@@ -3,17 +3,18 @@ package com.providence.rickandmorty_api_kotlin
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
-import com.google.android.material.navigation.NavigationView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
-import androidx.navigation.NavController
-import androidx.navigation.NavDestination
+import com.firebase.ui.auth.AuthUI
+import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 
 class DrawerActivity : AppCompatActivity(), NavController.OnDestinationChangedListener {
@@ -63,10 +64,12 @@ class DrawerActivity : AppCompatActivity(), NavController.OnDestinationChangedLi
         when(destination.id)
         {
             R.id.nav_slideshow -> {
-                print("test")
-                auth.signOut()
-                Intent(this, LoginActivity::class.java)
-                finish()
+                AuthUI.getInstance()
+                    .signOut(this)
+                    .addOnCompleteListener { // user is now signed out
+                        startActivity(Intent(this, LoginActivity::class.java))
+                        finish()
+                    }
             }
         }
     }
