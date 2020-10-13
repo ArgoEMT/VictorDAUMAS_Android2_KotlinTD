@@ -1,16 +1,26 @@
 package com.providence.rickandmorty_api_kotlin.model
 
+import com.google.gson.annotations.SerializedName
+
 data class Character(
-    val created: String,
-    val episode: List<String>,
-    val gender: String,
-    val id: Int,
-    val image: String,
-    val location: Location,
-    val name: String,
-    val origin: Origin,
-    val species: String,
-    val status: String,
-    val type: String,
-    val url: String
-)
+    @SerializedName("id") val id: Int,
+    @SerializedName("name") val name: String,
+    @SerializedName("status") val status: String,
+    @SerializedName("species") val species: String,
+    @SerializedName("type") val type: String,
+    @SerializedName("gender") val gender: String,
+    @SerializedName("origin") val origin: Place,
+    @SerializedName("location") val location: Place,
+    @SerializedName("image") val image: String,
+    @SerializedName("episode") val episode: List<String>,
+    @SerializedName("url") val url: String,
+    @SerializedName("created") val created: String
+) {
+    /**
+     * Define what is a place
+     */
+    data class Place(
+        @SerializedName("name") val name: String = "Toto",
+        @SerializedName("url") val url: String
+    )
+}

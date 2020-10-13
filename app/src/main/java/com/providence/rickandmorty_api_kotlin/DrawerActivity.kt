@@ -1,5 +1,6 @@
 package com.providence.rickandmorty_api_kotlin
 
+
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -17,11 +18,9 @@ import com.firebase.ui.auth.AuthUI
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 
-class DrawerActivity : AppCompatActivity(), NavController.OnDestinationChangedListener {
+class DrawerActivity : AppCompatActivity(){
 
-    val auth = FirebaseAuth.getInstance()
-    lateinit var navController: NavController
-
+    private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +36,7 @@ class DrawerActivity : AppCompatActivity(), NavController.OnDestinationChangedLi
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow
+                R.id.nav_home, R.id.nav_gallery, R.id.logout_button
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -56,32 +55,4 @@ class DrawerActivity : AppCompatActivity(), NavController.OnDestinationChangedLi
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    //LogOut button
-    override fun onDestinationChanged(
-        controller: NavController,
-        destination: NavDestination,
-        arguments: Bundle?
-    ) {
-        when(destination.id)
-        {
-            R.id.nav_slideshow -> {
-                AuthUI.getInstance()
-                    .signOut(this)
-                    .addOnCompleteListener { // user is now signed out
-                        startActivity(Intent(this, LoginActivity::class.java))
-                        finish()
-                    }
-            }
-        }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        navController.addOnDestinationChangedListener(this)
-    }
-
-    override fun onPause() {
-        super.onPause()
-        navController.removeOnDestinationChangedListener(this)
-    }
 }

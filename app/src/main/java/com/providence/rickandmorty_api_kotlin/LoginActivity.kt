@@ -20,7 +20,6 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         val auth = FirebaseAuth.getInstance()
-//        auth.signOut()
         if (auth.currentUser != null) {
             // Already signed in
             startActivity(Intent(this@LoginActivity, DrawerActivity::class.java))
@@ -56,7 +55,6 @@ class LoginActivity : AppCompatActivity() {
             if (resultCode == Activity.RESULT_OK) {
                 // Successfully signed in
                 startActivity(Intent(this@LoginActivity, DrawerActivity::class.java))
-//                finish()
                 return
             } else {
                 // Sign in failed
