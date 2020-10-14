@@ -1,6 +1,6 @@
-package com.providence.rickandmorty_api_kotlin
+package com.providence.rickandmorty_api_kotlin.webservice.api
 
-import com.providence.rickandmorty_api_kotlin.webservice.api.RetrofitInterface
+import com.providence.rickandmorty_api_kotlin.URL
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

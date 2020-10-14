@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.providence.rickandmorty_api_kotlin.dummy.DummyContent
 import com.providence.rickandmorty_api_kotlin.model.Cocktail
 import com.providence.rickandmorty_api_kotlin.model.ListCocktail
+import com.providence.rickandmorty_api_kotlin.webservice.api.Webservice
 import kotlinx.android.synthetic.main.fragment_cocktail_list.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -45,9 +45,10 @@ class CocktailFragment : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-//                adapter = MyItemRecyclerViewAdapter(DummyContent.ITEMS)
             }
         }
+        fetchCocktails()
+        Log.i("1002","onCreate viewList" )
         return view
     }
 
@@ -71,21 +72,22 @@ class CocktailFragment : Fragment() {
     }
 
     private fun fetchCocktails() {
+        Log.i("1003", "Enter the fetchCocktails")
         var adapter: MyItemRecyclerViewAdapter? = null
         webservice = Webservice()
         val call: Call<ListCocktail?>? = webservice.getService()?.getCocktail()
-
         call?.enqueue(object : Callback<ListCocktail?> {
             override fun onResponse(call: Call<ListCocktail?>, response: Response<ListCocktail?>) {
-                Log.i("code", Integer.toString(response.code()))
+                Log.i("1003", Integer.toString(response.code()))
                 if (response.body() != null) {
                     adapter = MyItemRecyclerViewAdapter(response.body()?.getCocktails() as List<Cocktail>)
                     list.adapter = adapter
                 }
+
             }
 
             override fun onFailure(call: Call<ListCocktail?>, t: Throwable) {
-                Log.i("List", t.message!!)
+                t.message?.let { Log.i("1003", it) }
             }
         })
     }

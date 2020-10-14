@@ -10,10 +10,6 @@ import com.providence.rickandmorty_api_kotlin.dummy.DummyContent.DummyItem
 import com.providence.rickandmorty_api_kotlin.model.Cocktail
 import kotlinx.android.synthetic.main.fragment_cocktail.view.*
 
-/**
- * [RecyclerView.Adapter] that can display a [DummyItem].
- * TODO: Replace the implementation with code for your data type.
- */
 class MyItemRecyclerViewAdapter(
     private val values: List<Cocktail>
 ) : RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder>() {

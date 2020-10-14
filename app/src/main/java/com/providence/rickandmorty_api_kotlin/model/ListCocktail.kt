@@ -17,8 +17,16 @@ class ListCocktail {
         return title
     }
 
+    fun setTitle(title: String?) {
+        this.title = title
+    }
+
     fun getCocktails(): List<Cocktail?>? {
         return cocktails
+    }
+
+    fun setCocktails(cocktails: List<Cocktail?>?) {
+        this.cocktails = cocktails
     }
 
 
