@@ -5,10 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-
-import com.providence.rickandmorty_api_kotlin.dummy.DummyContent.DummyItem
 import com.providence.rickandmorty_api_kotlin.model.Cocktail
-import kotlinx.android.synthetic.main.fragment_cocktail.view.*
 
 class MyItemRecyclerViewAdapter(
     private val values: List<Cocktail>

@@ -47,8 +47,6 @@ class CocktailFragment : Fragment() {
                 }
             }
         }
-        fetchCocktails()
-        Log.i("1002","onCreate viewList" )
         return view
     }
 
@@ -73,17 +71,20 @@ class CocktailFragment : Fragment() {
 
     private fun fetchCocktails() {
         Log.i("1003", "Enter the fetchCocktails")
+
         var adapter: MyItemRecyclerViewAdapter? = null
         webservice = Webservice()
+
         val call: Call<ListCocktail?>? = webservice.getService()?.getCocktail()
         call?.enqueue(object : Callback<ListCocktail?> {
+
             override fun onResponse(call: Call<ListCocktail?>, response: Response<ListCocktail?>) {
                 Log.i("1003", Integer.toString(response.code()))
+
                 if (response.body() != null) {
                     adapter = MyItemRecyclerViewAdapter(response.body()?.getCocktails() as List<Cocktail>)
                     list.adapter = adapter
                 }
-
             }
 
             override fun onFailure(call: Call<ListCocktail?>, t: Throwable) {
