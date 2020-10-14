@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.providence.rickandmorty_api_kotlin.model.Cocktail
 import com.providence.rickandmorty_api_kotlin.model.ListCocktail
+import com.providence.rickandmorty_api_kotlin.ui.adapter.MyItemRecyclerViewAdapter
 import com.providence.rickandmorty_api_kotlin.webservice.api.Webservice
 import kotlinx.android.synthetic.main.fragment_cocktail_list.*
 import retrofit2.Call
