@@ -7,7 +7,7 @@ import com.firebase.ui.auth.AuthUI
 import com.providence.rickandmorty_api_kotlin.ui.activity.LoginActivity
 
 
-class SlideshowFragment : Fragment() {
+class LogoutFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

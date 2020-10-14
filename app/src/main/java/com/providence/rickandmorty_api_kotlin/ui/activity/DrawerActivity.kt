@@ -2,7 +2,6 @@ package com.providence.rickandmorty_api_kotlin.ui.activity
 
 
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -15,18 +14,12 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.providence.rickandmorty_api_kotlin.R
-import com.providence.rickandmorty_api_kotlin.Webservice
-import com.providence.rickandmorty_api_kotlin.model.ListCocktail
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 
 class DrawerActivity : AppCompatActivity(){
 
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var webservice: Webservice
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,9 +39,6 @@ class DrawerActivity : AppCompatActivity(){
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
-        fetchCharacters()
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -60,28 +50,5 @@ class DrawerActivity : AppCompatActivity(){
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
-    }
-
-    private fun fetchCharacters() {
-
-
-        //*onCreate API
-        webservice = Webservice()
-        val list: Call<ListCocktail?>? = webservice.getService()?.getCocktail()
-
-        list?.enqueue(object : Callback<ListCocktail?> {
-            override fun onResponse(call: Call<ListCocktail?>, response: Response<ListCocktail?>) {
-                Log.i("code", Integer.toString(response.code()))
-                if (response.body() != null) {
-                    for (i in response.body()!!.getCocktails()!!) {
-                        println(i?.getName())
-                    }
-                }
-            }
-
-            override fun onFailure(call: Call<ListCocktail?>, t: Throwable) {
-                Log.i("List", t.message!!)
-            }
-        })
     }
 }

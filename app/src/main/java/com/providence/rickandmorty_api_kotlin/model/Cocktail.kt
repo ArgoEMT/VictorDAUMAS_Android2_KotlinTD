@@ -20,24 +20,12 @@ class Cocktail {
         return name
     }
 
-    fun setName(name: String?) {
-        this.name = name
-    }
-
     fun isAlcool(): Boolean {
         return alcool
     }
 
-    fun setAlcool(alcool: Boolean) {
-        this.alcool = alcool
-    }
-
     fun getIngredients(): List<String?>? {
         return ingredients
-    }
-
-    fun setIngredients(ingredients: List<String?>?) {
-        this.ingredients = ingredients
     }
 
 }
